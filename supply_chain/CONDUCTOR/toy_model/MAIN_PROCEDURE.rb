@@ -1,0 +1,12 @@
+def procedure(me, refs)
+    d = me.createExecutableRun("distributor", "LOCAL")
+    p = me.createExecutableRun("producer", "LOCAL")
+    c = me.createExecutableRun("customer", "LOCAL")
+    d.p[:prod_step_key] = p.getResultKey("step") 
+    d.p[:prod_produced_key] = p.getResultKey("produced") 
+    d.p[:cust_step_key] = c.getResultKey("step") 
+    d.p[:cust_taken_key] = c.getResultKey("taken")
+    p.p[:master_step_key] = d.getResultKey("step") 
+    c.p[:master_step_key] = d.getResultKey("step") 
+    c.p[:dist_holding_key] = d.getResultKey("holding") 
+end

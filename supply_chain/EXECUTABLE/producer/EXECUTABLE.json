@@ -1,0 +1,7 @@
+{
+  "EXTRACTOR": ["args"],
+  "COLLECTOR": [],
+  "required_memory": 1,
+  "command": "./producer.sh",
+  "required_thread": 1
+}
